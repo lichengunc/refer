@@ -1,6 +1,6 @@
 
 ## Download
-Download my cleaned data and extract them into "data" folder
+Download the cleaned data and extract them into "data" folder
 - 1) http://tlberg.cs.unc.edu/licheng/referit/data/refclef.zip
 - 2) http://tlberg.cs.unc.edu/licheng/referit/data/refcoco.zip
 - 3) http://tlberg.cs.unc.edu/licheng/referit/data/refcoco+.zip 

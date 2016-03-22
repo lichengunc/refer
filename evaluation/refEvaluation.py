@@ -1,4 +1,3 @@
-__author__ = 'licheng'
 from tokenizer.ptbtokenizer import PTBTokenizer
 from bleu.bleu import Bleu
 from meteor.meteor import Meteor
