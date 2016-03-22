@@ -9,3 +9,6 @@ data/refcocog
 
 # ipynb_checkpoints
 .ipynb_checkpoints
+
+# .pyc
+*.pyc
