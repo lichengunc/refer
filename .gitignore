@@ -1,0 +1,11 @@
+# images
+data/images
+
+# 4 datasets
+data/refclef
+data/refcoco
+data/refcoco+
+data/refcocog
+
+# ipynb_checkpoints
+.ipynb_checkpoints

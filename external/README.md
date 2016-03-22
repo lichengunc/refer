@@ -1,0 +1,1 @@
+The mask.c and mask.py is copied from pycocotools: https://github.com/pdollar/coco
