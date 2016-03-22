@@ -4,7 +4,7 @@ Download my cleaned data and extract them into "data" folder
 - 1) http://tlberg.cs.unc.edu/licheng/referit/data/refclef.zip
 - 2) http://tlberg.cs.unc.edu/licheng/referit/data/refcoco.zip
 - 3) http://tlberg.cs.unc.edu/licheng/referit/data/refcoco+.zip 
-- 4) http://tlberg.cs.unc.edu/licheng/referit/data/refcocoG.zip 
+- 4) http://tlberg.cs.unc.edu/licheng/referit/data/refcocog.zip 
 
 ## Prepare Images:
 Besides we add "mscoco" into the "data/images" folder. 
@@ -19,7 +19,7 @@ refer = REFER('refclef',  splitBy='unc')
 refer = REFER('refcoco',  splitBy='unc')
 refer = REFER('refcoco',  splitBy='google')
 refer = REFER('refcoco+', splitBy='unc')
-refer = REFER('refcocoG', splitBy='unc')
+refer = REFER('refcocog', splitBy='unc')
 ```
 
 
@@ -29,8 +29,4 @@ ignore filename
 
 Each sentences is a list of sent
 {arw, sent, sent_id, tokens}
- --># ReferInterface
-# ReferInterface
-# refer
-# refer
-# refer
+ -->
