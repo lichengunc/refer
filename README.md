@@ -19,7 +19,7 @@ refer = REFER('refclef',  splitBy='unc')
 refer = REFER('refcoco',  splitBy='unc')
 refer = REFER('refcoco',  splitBy='google')
 refer = REFER('refcoco+', splitBy='unc')
-refer = REFER('refcocog', splitBy='unc')
+refer = REFER('refcocog', splitBy='google')
 ```
 
 
