@@ -329,7 +329,7 @@ class REFER:
 
 
 if __name__ == '__main__':
-	refer = REFER(dataset='refclef', splitBy='unc')
+	refer = REFER(dataset='refcocog', splitBy='google')
 	ref_ids = refer.getRefIds()
 	print(len(ref_ids))
 
@@ -341,12 +341,15 @@ if __name__ == '__main__':
 
 	for ref_id in ref_ids:
 		ref = refer.loadRefs(ref_id)[0]
+		if len(ref['sentences']) < 2:
+			continue
+
 		pprint(ref)
 		print 'The label is %s.' % refer.Cats[ref['category_id']]
 		plt.figure()
-		refer.showRef(ref, seg_box='seg')
+		refer.showRef(ref, seg_box='box')
 		plt.show()
 
-		plt.figure()
-		refer.showMask(ref)
-		plt.show()
+		# plt.figure()
+		# refer.showMask(ref)
+		# plt.show()

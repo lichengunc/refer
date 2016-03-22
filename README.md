@@ -1,10 +1,18 @@
 
+
 ## Download
 Download the cleaned data and extract them into "data" folder
 - 1) http://tlberg.cs.unc.edu/licheng/referit/data/refclef.zip
 - 2) http://tlberg.cs.unc.edu/licheng/referit/data/refcoco.zip
 - 3) http://tlberg.cs.unc.edu/licheng/referit/data/refcoco+.zip 
 - 4) http://tlberg.cs.unc.edu/licheng/referit/data/refcocog.zip 
+
+<table width="100%">
+<tr>
+<td><img src="http://tlberg.cs.unc.edu/licheng/referit/refer_example.jpg", alt="Mountain View" width="95%"></td>
+</tr>
+</table>
+
 
 ## Prepare Images:
 Besides we add "mscoco" into the "data/images" folder. 
