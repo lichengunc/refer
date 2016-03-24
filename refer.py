@@ -41,16 +41,18 @@ from external import mask
 # from skimage.measure import label, regionprops
 
 class REFER:
-	def __init__(self, dataset='refcoco', splitBy='unc'):
-		# provide dataset name and splitBy information
+
+	def __init__(self, data_root, dataset='refcoco', splitBy='unc'):
+		# provide data_root folder which contains refclef, refcoco, refcoco+ and refcocog
+		# also provide dataset name and splitBy information
 		# e.g., dataset = 'refcoco', splitBy = 'unc'
 		print 'loading dataset %s into memory...' % dataset
 		self.ROOT_DIR = osp.abspath(osp.dirname(__file__))
-		self.DATA_DIR = osp.join(self.ROOT_DIR, 'data', dataset)
+		self.DATA_DIR = osp.join(data_root, dataset)
 		if dataset in ['refcoco', 'refcoco+', 'refcocog']:
-			self.IMAGE_DIR = osp.join(self.ROOT_DIR, 'data/images/mscoco/images/train2014')
+			self.IMAGE_DIR = osp.join(data_root, 'images/mscoco/images/train2014')
 		elif dataset == 'refclef':
-			self.IMAGE_DIR = osp.join(self.ROOT_DIR, 'data/images/saiapr_tc-12')
+			self.IMAGE_DIR = osp.join(data_root, 'images/saiapr_tc-12')
 		else:
 			print 'No refer dataset is called [%s]' % dataset
 			sys.exit()
