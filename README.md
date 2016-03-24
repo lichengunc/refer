@@ -23,11 +23,12 @@ Our dataset API "pyutils/datasets/refer.py" is able to load all 4 datasets.
 
 ## How to use
 ```bash
-refer = REFER('refclef',  splitBy='unc')
-refer = REFER('refcoco',  splitBy='unc')
-refer = REFER('refcoco',  splitBy='google')
-refer = REFER('refcoco+', splitBy='unc')
-refer = REFER('refcocog', splitBy='google')
+# locate your own data_root, and choose the dataset_splitBy you want to use
+refer = REFER(data_root, dataset='refclef',  splitBy='unc')
+refer = REFER(data_root, dataset='refcoco',  splitBy='unc')
+refer = REFER(data_root, dataset='refcoco',  splitBy='google')
+refer = REFER(data_root, dataset='refcoco+', splitBy='unc')
+refer = REFER(data_root, dataset='refcocog', splitBy='google')
 ```
 
 
