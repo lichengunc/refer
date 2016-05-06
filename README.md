@@ -1,5 +1,6 @@
 ## Note
 We are doing some further cleaning on refcoco+, thus this dataset will change in the future.
+We will also release refcelf split by UC Berkeley in the future.
 
 ## Download
 Download the cleaned data and extract them into "data" folder
