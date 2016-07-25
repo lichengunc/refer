@@ -3,9 +3,12 @@ We are doing some further cleaning on refcoco+, thus this dataset will change in
 We will also release refcelf split by UC Berkeley in the future.
 
 ## Cite
-If you used this dataset, please cite our EMNLP paper; if you want to compare with our recent results, please check our ECCV paper.
-- Kazemzadeh, Sahar, et al. "ReferItGame: Referring to Objects in Photographs of Natural Scenes." EMNLP. 2014.
-- Licheng Yu, Patric Poirson, Shan Yang, Alex Berg, Tamara Berg "Modeling Context in Referring Expressions." ECCV. 2016.
+If you used the following three datasets RefClef, RefCOCO and RefCOCO+, please consider cite our EMNLP2014 paper; if you want to compare with our recent results, please check our ECCV2016 paper.
+```bash
+Kazemzadeh, Sahar, et al. "ReferItGame: Referring to Objects in Photographs of Natural Scenes." EMNLP 2014.
+Yu, Licheng, et al. "Modeling Context in Referring Expressions." ECCV 2016.
+```
+
 
 ## Download
 Download the cleaned data and extract them into "data" folder
