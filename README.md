@@ -29,7 +29,7 @@ Besides we add "mscoco" into the "data/images" folder.
 Download it from [mscoco](http://mscoco.org/dataset/#overview)
 This dataset is for refcoco, refcoco+ and refgoogle.
 For refclef, we add "saiapr_tc-12" into 'data/images' folder. I only extracted the related images as a subset of the original [imageCLEF](http://imageclef.org/SIAPRdata), i.e., 19997 images. Please download the subset from here (http://tlberg.cs.unc.edu/licheng/referit/data/images/saiapr_tc-12.zip).
-Our dataset API "pyutils/datasets/refer.py" is able to load all 4 datasets.
+The "refer.py" is able to load all 4 datasets with different kinds of data split by UNC, Google and UC Berkeley.
 
 ## How to use
 ```bash
