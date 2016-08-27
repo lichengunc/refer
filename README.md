@@ -1,5 +1,5 @@
 ## Note
-We are doing some further cleaning on refcoco+, thus this dataset will change in the future.
+We are doing some further cleaning on refcoco+, thus this dataset may change in the future.
 We will also release refcelf split by UC Berkeley in the future.
 
 ## Cite
@@ -8,7 +8,10 @@ If you used the following three datasets RefClef, RefCOCO and RefCOCO+, please c
 Kazemzadeh, Sahar, et al. "ReferItGame: Referring to Objects in Photographs of Natural Scenes." EMNLP 2014.
 Yu, Licheng, et al. "Modeling Context in Referring Expressions." ECCV 2016.
 ```
-
+## Setup
+Run "make" before using the code.
+It will generate ``_mask.c`` and ``_mask.so`` in ``external/`` folder.
+These mask-related codes are copied from mscoco [API](https://github.com/pdollar/coco).
 
 ## Download
 Download the cleaned data and extract them into "data" folder
