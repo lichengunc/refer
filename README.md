@@ -1,6 +1,5 @@
 ## Note
 We are doing some further cleaning on refcoco+, thus this dataset may change in the future.
-We will also release refcelf split by UC Berkeley in the future.
 
 ## Cite
 If you used the following three datasets RefClef, RefCOCO and RefCOCO+, please consider cite our EMNLP2014 paper; if you want to compare with our recent results, please check our ECCV2016 paper.
@@ -38,6 +37,7 @@ The "refer.py" is able to load all 4 datasets with different kinds of data split
 ```bash
 # locate your own data_root, and choose the dataset_splitBy you want to use
 refer = REFER(data_root, dataset='refclef',  splitBy='unc')
+refer = REFER(data_root, dataset='refclef',  splitBy='berkeley') -- we miss 1 training and 2 testing images.
 refer = REFER(data_root, dataset='refcoco',  splitBy='unc')
 refer = REFER(data_root, dataset='refcoco',  splitBy='google')
 refer = REFER(data_root, dataset='refcoco+', splitBy='unc')
