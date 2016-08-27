@@ -325,9 +325,9 @@ class REFER:
 
 	def showMask(self, ref):
 		M = self.getMask(ref)
-		mask = M['mask']
+		msk = M['mask']
 		ax = plt.gca()
-		ax.imshow(mask)
+		ax.imshow(msk)
 
 
 if __name__ == '__main__':
