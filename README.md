@@ -5,7 +5,7 @@ Note, RefCOCO+ may change in the future as we are still cleaning it.
 Notification will be announced if we made changes.
 <table width="100%">
 <tr>
-<td><img src="http://tlberg.cs.unc.edu/licheng/referit/refer_example.jpg", alt="Mountain View" width="95%"></td>
+<td><img src="http://bvisionweb1.cs.unc.edu/licheng/referit/refer_example.jpg", alt="Mountain View" width="95%"></td>
 </tr>
 </table>
 
@@ -23,10 +23,10 @@ These mask-related codes are copied from mscoco [API](https://github.com/pdollar
 
 ## Download
 Download the cleaned data and extract them into "data" folder
-- 1) http://tlberg.cs.unc.edu/licheng/referit/data/refclef.zip
-- 2) http://tlberg.cs.unc.edu/licheng/referit/data/refcoco.zip
-- 3) http://tlberg.cs.unc.edu/licheng/referit/data/refcoco+.zip 
-- 4) http://tlberg.cs.unc.edu/licheng/referit/data/refcocog.zip 
+- 1) http://bvisionweb1.cs.unc.edu/licheng/referit/data/refclef.zip
+- 2) http://bvisionweb1.cs.unc.edu/licheng/referit/data/refcoco.zip
+- 3) http://bvisionweb1.cs.unc.edu/licheng/referit/data/refcoco+.zip 
+- 4) http://bvisionweb1.cs.unc.edu/licheng/referit/data/refcocog.zip 
 
 ## Prepare Images:
 Besides, add "mscoco" into the ``data/images`` folder, which can be from [mscoco](http://mscoco.org/dataset/#overview)
