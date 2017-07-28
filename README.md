@@ -43,6 +43,7 @@ refer = REFER(data_root, dataset='refcoco',  splitBy='unc')
 refer = REFER(data_root, dataset='refcoco',  splitBy='google')
 refer = REFER(data_root, dataset='refcoco+', splitBy='unc')
 refer = REFER(data_root, dataset='refcocog', splitBy='google')  # testing data haven't been released yet
+refer = REFER(data_root, dataset='refcocog', splitBy='umd') # train/val/test split provided by UMD (recommended)
 ```
 
 
