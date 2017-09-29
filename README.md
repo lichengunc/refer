@@ -21,7 +21,7 @@ To install this package, along its dependencies, you can execute:
 ```bash
 pip install -U .
 ```
-This package depends on numpy, matplotlib, scikit-image and Cython, it also depends on the mscoco API mask routines, which are compiled during setup. These mask-related codes are copied from mscoco [API](https://github.com/pdollar/coco).
+This package depends on [Numpy](http://www.numpy.org/), [Matplotlib](https://matplotlib.org/), [scikit-image](http://scikit-image.org/) and [Cython](http://cython.org/), it also depends on the mscoco API mask routines, which are compiled during setup. These mask-related codes are copied from mscoco [API](https://github.com/pdollar/coco).
 
 ## Download
 Download the cleaned data and extract them into "data" folder
