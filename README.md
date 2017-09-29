@@ -17,16 +17,18 @@ Yu, Licheng, et al. "Modeling Context in Referring Expressions." ECCV 2016.
 ```
 
 ## Setup
-Run "make" before using the code.
-It will generate ``_mask.c`` and ``_mask.so`` in ``external/`` folder.
-These mask-related codes are copied from mscoco [API](https://github.com/pdollar/coco).
+To install this package, along its dependencies, you can execute:
+```bash
+pip install -U .
+```
+This package depends on numpy, matplotlib, scikit-image and Cython, it also depends on the mscoco API mask routines, which are compiled during setup. These mask-related codes are copied from mscoco [API](https://github.com/pdollar/coco).
 
 ## Download
 Download the cleaned data and extract them into "data" folder
 - 1) http://bvisionweb1.cs.unc.edu/licheng/referit/data/refclef.zip
 - 2) http://bvisionweb1.cs.unc.edu/licheng/referit/data/refcoco.zip
-- 3) http://bvisionweb1.cs.unc.edu/licheng/referit/data/refcoco+.zip 
-- 4) http://bvisionweb1.cs.unc.edu/licheng/referit/data/refcocog.zip 
+- 3) http://bvisionweb1.cs.unc.edu/licheng/referit/data/refcoco+.zip
+- 4) http://bvisionweb1.cs.unc.edu/licheng/referit/data/refcocog.zip
 
 ## Prepare Images:
 Besides, add "mscoco" into the ``data/images`` folder, which can be from [mscoco](http://mscoco.org/dataset/#overview)
@@ -34,16 +36,18 @@ COCO's images are used for RefCOCO, RefCOCO+ and refCOCOg.
 For RefCLEF, please add ``saiapr_tc-12`` into ``data/images`` folder. We extracted the related 19997 images to our cleaned RefCLEF dataset, which is a subset of the original [imageCLEF](http://imageclef.org/SIAPRdata). Download the [subset](http://bvisionweb1.cs.unc.edu/licheng/referit/data/images/saiapr_tc-12.zip) and unzip it to ``data/images/saiapr_tc-12``.
 
 ## How to use
-The "refer.py" is able to load all 4 datasets with different kinds of data split by UNC, Google and UC Berkeley.
-```bash
+The refer module (``referit/refer.py``) is able to load all 4 datasets with different kinds of data split by UNC, Google and UC Berkeley.
+```python
+from referit import REFER
+
 # locate your own data_root, and choose the dataset_splitBy you want to use
-refer = REFER(data_root, dataset='refclef',  splitBy='unc')
-refer = REFER(data_root, dataset='refclef',  splitBy='berkeley')  # 2 training and 1 testing images missed
-refer = REFER(data_root, dataset='refcoco',  splitBy='unc')
-refer = REFER(data_root, dataset='refcoco',  splitBy='google')
-refer = REFER(data_root, dataset='refcoco+', splitBy='unc')
-refer = REFER(data_root, dataset='refcocog', splitBy='google')  # testing data haven't been released yet
-refer = REFER(data_root, dataset='refcocog', splitBy='umd') # train/val/test split provided by UMD (recommended)
+refer = REFER(data_root, dataset='refclef',  split_by='unc')
+refer = REFER(data_root, dataset='refclef',  split_by='berkeley')  # 2 training and 1 testing images missed
+refer = REFER(data_root, dataset='refcoco',  split_by='unc')
+refer = REFER(data_root, dataset='refcoco',  split_by='google')
+refer = REFER(data_root, dataset='refcoco+', split_by='unc')
+refer = REFER(data_root, dataset='refcocog', split_by='google')  # testing data haven't been released yet
+refer = REFER(data_root, dataset='refcocog', split_by='umd') # train/val/test split provided by UMD (recommended)
 ```
 
 
