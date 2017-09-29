@@ -19,7 +19,7 @@ from setuptools import Extension, find_packages, setup
 HERE = os.path.abspath(os.path.dirname(__file__))
 
 
-def get_version(module='refer'):
+def get_version(module='referit'):
     """Get version from text file and avoids importing the module."""
     with open(os.path.join(HERE, module, '__init__.py'), 'r') as f:
         data = f.read()
@@ -34,8 +34,8 @@ def get_version(module='refer'):
 
 ext_modules = [
     Extension(
-        'refer.external._mask',
-        sources=['refer/external/maskApi.c', 'refer/external/_mask.pyx'],
+        'referit.external._mask',
+        sources=['referit/external/maskApi.c', 'referit/external/_mask.pyx'],
         include_dirs=[np.get_include(), 'external'],
         extra_compile_args=['-Wno-cpp', '-Wno-unused-function', '-std=c99'],
     )
