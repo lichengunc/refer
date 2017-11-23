@@ -1,8 +1,6 @@
 ## Note
 This API is able to load all 4 referring expression datasets, i.e., RefClef, RefCOCO, RefCOCO+ and RefCOCOg. 
 They are with different train/val/test split by UNC, Google and UC Berkeley respectively. We provide all kinds of splits here.
-Note, RefCOCO+ may change in the future as we are still cleaning it. 
-Notification will be announced if we made changes.
 <table width="100%">
 <tr>
 <td><img src="http://bvisionweb1.cs.unc.edu/licheng/referit/refer_example.jpg", alt="Mountain View" width="95%"></td>
@@ -34,16 +32,17 @@ COCO's images are used for RefCOCO, RefCOCO+ and refCOCOg.
 For RefCLEF, please add ``saiapr_tc-12`` into ``data/images`` folder. We extracted the related 19997 images to our cleaned RefCLEF dataset, which is a subset of the original [imageCLEF](http://imageclef.org/SIAPRdata). Download the [subset](http://bvisionweb1.cs.unc.edu/licheng/referit/data/images/saiapr_tc-12.zip) and unzip it to ``data/images/saiapr_tc-12``.
 
 ## How to use
-The "refer.py" is able to load all 4 datasets with different kinds of data split by UNC, Google and UC Berkeley.
+The "refer.py" is able to load all 4 datasets with different kinds of data split by UNC, Google, UMD and UC Berkeley.
+**Note for RefCOCOg, we suggest use UMD's split which has train/val/test splits and there is no overlap of images between different split.**
 ```bash
 # locate your own data_root, and choose the dataset_splitBy you want to use
 refer = REFER(data_root, dataset='refclef',  splitBy='unc')
-refer = REFER(data_root, dataset='refclef',  splitBy='berkeley')  # 2 training and 1 testing images missed
+refer = REFER(data_root, dataset='refclef',  splitBy='berkeley') # 2 train and 1 test images missed
 refer = REFER(data_root, dataset='refcoco',  splitBy='unc')
 refer = REFER(data_root, dataset='refcoco',  splitBy='google')
 refer = REFER(data_root, dataset='refcoco+', splitBy='unc')
-refer = REFER(data_root, dataset='refcocog', splitBy='google')  # testing data haven't been released yet
-refer = REFER(data_root, dataset='refcocog', splitBy='umd') # train/val/test split provided by UMD (recommended)
+refer = REFER(data_root, dataset='refcocog', splitBy='google')   # test split not released yet
+refer = REFER(data_root, dataset='refcocog', splitBy='umd')      # Recommended, including train/val/test
 ```
 
 
