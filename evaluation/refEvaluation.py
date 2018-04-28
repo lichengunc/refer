@@ -32,7 +32,7 @@ class RefEvaluation:
         refToGts = {}
         for ref_id in evalRefIds:
             ref = self.refer.Refs[ref_id]
-            gt_sents = [sent['sent'] for sent in ref['sentences']]  # up to 3 expressions
+            gt_sents = [sent['sent'].encode('ascii', 'ignore').decode('ascii') for sent in ref['sentences']]  # up to 3 expressions
             refToGts[ref_id] = gt_sents
         refToRes = {ann['ref_id']: [ann['sent']] for ann in self.Res}
 
