@@ -40,19 +40,22 @@ from external import mask
 # import cv2
 # from skimage.measure import label, regionprops
 
-class REFER:
+class REFER():
 
     def __init__(self, data_root, dataset='refcoco', splitBy='unc'):
-        # provide data_root folder which contains refclef, refcoco, refcoco+ and refcocog
+        # provide data_root folder which contains refclef, refcoco, refcoco+ 
+        # and refcocog
         # also provide dataset name and splitBy information
         # e.g., dataset = 'refcoco', splitBy = 'unc'
         print('loading dataset %s into memory...' % dataset)
         self.ROOT_DIR = osp.abspath(osp.dirname(__file__))
         self.DATA_DIR = osp.join(data_root, dataset)
         if dataset in ['refcoco', 'refcoco+', 'refcocog']:
-            self.IMAGE_DIR = osp.join(data_root, 'images/mscoco/images/train2014')
+            self.IMAGE_DIR = osp.join(data_root, 
+                'images/mscoco/images/train2014')
         elif dataset == 'refclef':
-            self.IMAGE_DIR = osp.join(data_root, 'images/saiapr_tc-12')
+            self.IMAGE_DIR = osp.join(data_root, 
+                'images/saiapr_tc-12')
         else:
             print('No refer dataset is called [%s]' % dataset)
             sys.exit()
@@ -94,7 +97,8 @@ class REFER:
         Anns, Imgs, Cats, imgToAnns = {}, {}, {}, {}
         for ann in self.data['annotations']:
             Anns[ann['id']] = ann
-            imgToAnns[ann['image_id']] = imgToAnns.get(ann['image_id'], []) + [ann]
+            imgToAnns[ann['image_id']] = \
+                imgToAnns.get(ann['image_id'], []) + [ann]
         for img in self.data['images']:
             Imgs[img['id']] = img
         for cat in self.data['categories']:
@@ -156,9 +160,11 @@ class REFER:
                 refs = [ref for ref in refs if ref['ref_id'] in ref_ids]
             if not len(split) == 0:
                 if split in ['testA', 'testB', 'testC']:
-                    refs = [ref for ref in refs if split[-1] in ref['split']] # we also consider testAB, testBC, ...
+                    # we also consider testAB, testBC, ...
+                    refs = [ref for ref in refs if split[-1] in ref['split']] 
                 elif split in ['testAB', 'testBC', 'testAC']:
-                    refs = [ref for ref in refs if ref['split'] == split]  # rarely used I guess...
+                    # rarely used I guess...
+                    refs = [ref for ref in refs if ref['split'] == split]  
                 elif split == 'test':
                     refs = [ref for ref in refs if 'test' in ref['split']]
                 elif split == 'train' or split == 'val':
@@ -178,7 +184,8 @@ class REFER:
             ann_ids = [ann['id'] for ann in self.data['annotations']]
         else:
             if not len(image_ids) == 0:
-                lists = [self.imgToAnns[image_id] for image_id in image_ids if image_id in self.imgToAnns]  # list of [anns]
+                lists = [self.imgToAnns[image_id] for image_id in image_ids 
+                            if image_id in self.imgToAnns]  # list of [anns]
                 anns = list(itertools.chain.from_iterable(lists))
             else:
                 anns = self.data['annotations']
@@ -186,14 +193,17 @@ class REFER:
                 anns = [ann for ann in anns if ann['category_id'] in cat_ids]
             ann_ids = [ann['id'] for ann in anns]
             if not len(ref_ids) == 0:
-                ids = set(ann_ids).intersection(set([self.Refs[ref_id]['ann_id'] for ref_id in ref_ids]))
+                ids = set(ann_ids).intersection(
+                        set([self.Refs[ref_id]['ann_id'] for ref_id in ref_ids])
+                      )
         return ann_ids
 
     def getImgIds(self, ref_ids=[]):
         ref_ids = ref_ids if type(ref_ids) == list else [ref_ids]
 
         if not len(ref_ids) == 0:
-            image_ids = list(set([self.Refs[ref_id]['image_id'] for ref_id in ref_ids]))
+            image_ids = list(set([self.Refs[ref_id]['image_id'] 
+                                  for ref_id in ref_ids]))
         else:
             image_ids = list(self.Imgs.keys())
         return image_ids
@@ -249,12 +259,15 @@ class REFER:
             if type(ann['segmentation'][0]) == list:
                 # polygon used for refcoco*
                 for seg in ann['segmentation']:
-                    poly = np.array(seg).reshape((len(seg)/2, 2))
+                    print(seg)
+                    poly = np.array(seg).reshape((int(len(seg)/2), 2))
                     polygons.append(Polygon(poly, True, alpha=0.4))
                     color.append(c)
-                p = PatchCollection(polygons, facecolors=color, edgecolors=(1,1,0,0), linewidths=3, alpha=1)
+                p = PatchCollection(polygons, facecolors=color, 
+                        edgecolors=(1,1,0,0), linewidths=3, alpha=1)
                 ax.add_collection(p)  # thick yellow polygon
-                p = PatchCollection(polygons, facecolors=color, edgecolors=(1,0,0,0), linewidths=1, alpha=1)
+                p = PatchCollection(polygons, facecolors=color, 
+                        edgecolors=(1,0,0,0), linewidths=1, alpha=1)
                 ax.add_collection(p)  # thin red polygon
             else:
                 # mask used for refclef
@@ -269,8 +282,9 @@ class REFER:
         elif seg_box == 'box':
             ann_id = ref['ann_id']
             ann = self.Anns[ann_id]
-            bbox =     self.getRefBox(ref['ref_id'])
-            box_plot = Rectangle((bbox[0], bbox[1]), bbox[2], bbox[3], fill=False, edgecolor='green', linewidth=3)
+            bbox = self.getRefBox(ref['ref_id'])
+            box_plot = Rectangle((bbox[0], bbox[1]), bbox[2], bbox[3], 
+                                  fill=False, edgecolor='green', linewidth=3)
             ax.add_patch(box_plot)
 
     def getMask(self, ref):
@@ -278,50 +292,16 @@ class REFER:
         ann = self.refToAnn[ref['ref_id']]
         image = self.Imgs[ref['image_id']]
         if type(ann['segmentation'][0]) == list: # polygon
-            rle = mask.frPyObjects(ann['segmentation'], image['height'], image['width'])
+            rle = mask.frPyObjects(ann['segmentation'], 
+                                   image['height'], image['width'])
         else:
             rle = ann['segmentation']
         m = mask.decode(rle)
-        m = np.sum(m, axis=2)  # sometimes there are multiple binary map (corresponding to multiple segs)
+        m = np.sum(m, axis=2)  # there could be several binary map as multi segs
         m = m.astype(np.uint8) # convert to np.uint8
         # compute area
         area = sum(mask.area(rle))  # should be close to ann['area']
         return {'mask': m, 'area': area}
-        # # position
-        # position_x = np.mean(np.where(m==1)[1]) # [1] means columns (matlab style) -> x (c style)
-        # position_y = np.mean(np.where(m==1)[0]) # [0] means rows (matlab style)    -> y (c style)
-        # # mass position (if there were multiple regions, we use the largest one.)
-        # label_m = label(m, connectivity=m.ndim)
-        # regions = regionprops(label_m)
-        # if len(regions) > 0:
-        #     largest_id = np.argmax(np.array([props.filled_area for props in regions]))
-        #     largest_props = regions[largest_id]
-        #     mass_y, mass_x = largest_props.centroid
-        # else:
-        #     mass_x, mass_y = position_x, position_y
-        # # if centroid is not in mask, we find the closest point to it from mask
-        # if m[mass_y, mass_x] != 1:
-        #     print 'Finding closes mask point ...'
-        #     kernel = np.ones((10, 10),np.uint8)
-        #     me = cv2.erode(m, kernel, iterations = 1)
-        #     points = zip(np.where(me == 1)[0].tolist(), np.where(me == 1)[1].tolist())  # row, col style
-        #     points = np.array(points)
-        #     dist   = np.sum((points - (mass_y, mass_x))**2, axis=1)
-        #     id     = np.argsort(dist)[0]
-        #     mass_y, mass_x = points[id]
-        #     # return
-        # return {'mask': m, 'area': area, 'position_x': position_x, 'position_y': position_y, 'mass_x': mass_x, 'mass_y': mass_y}
-        # # show image and mask
-        # I = io.imread(osp.join(self.IMAGE_DIR, image['file_name']))
-        # plt.figure()
-        # plt.imshow(I)
-        # ax = plt.gca()
-        # img = np.ones( (m.shape[0], m.shape[1], 3) )
-        # color_mask = np.array([2.0,166.0,101.0])/255
-        # for i in range(3):
-        #     img[:,:,i] = color_mask[i]
-        # ax.imshow(np.dstack( (img, m*0.5) ))
-        # plt.show()
 
     def showMask(self, ref):
         M = self.getMask(ref)
@@ -331,7 +311,7 @@ class REFER:
 
 
 if __name__ == '__main__':
-    refer = REFER(dataset='refcocog', splitBy='google')
+    refer = REFER(data_root='data', dataset='refcocog', splitBy='google')
     ref_ids = refer.getRefIds()
     print((len(ref_ids)))
 
@@ -341,7 +321,7 @@ if __name__ == '__main__':
     ref_ids = refer.getRefIds(split='train')
     print('There are %s training referred objects.' % len(ref_ids))
 
-    for ref_id in ref_ids:
+    for ref_id in ref_ids[:5]:
         ref = refer.loadRefs(ref_id)[0]
         if len(ref['sentences']) < 2:
             continue
