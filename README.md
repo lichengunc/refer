@@ -21,15 +21,15 @@ These mask-related codes are copied from mscoco [API](https://github.com/pdollar
 
 ## Download
 Download the cleaned data and extract them into "data" folder
-- 1) http://bvisionweb1.cs.unc.edu/licheng/referit/data/refclef.zip
-- 2) http://bvisionweb1.cs.unc.edu/licheng/referit/data/refcoco.zip
-- 3) http://bvisionweb1.cs.unc.edu/licheng/referit/data/refcoco+.zip 
-- 4) http://bvisionweb1.cs.unc.edu/licheng/referit/data/refcocog.zip 
+- 1) https://bvisionweb1.cs.unc.edu/licheng/referit/data/refclef.zip
+- 2) https://bvisionweb1.cs.unc.edu/licheng/referit/data/refcoco.zip
+- 3) https://bvisionweb1.cs.unc.edu/licheng/referit/data/refcoco+.zip 
+- 4) https://bvisionweb1.cs.unc.edu/licheng/referit/data/refcocog.zip 
 
 ## Prepare Images:
 Besides, add "mscoco" into the ``data/images`` folder, which can be from [mscoco](http://mscoco.org/dataset/#overview)
 COCO's images are used for RefCOCO, RefCOCO+ and refCOCOg.
-For RefCLEF, please add ``saiapr_tc-12`` into ``data/images`` folder. We extracted the related 19997 images to our cleaned RefCLEF dataset, which is a subset of the original [imageCLEF](http://imageclef.org/SIAPRdata). Download the [subset](http://bvisionweb1.cs.unc.edu/licheng/referit/data/images/saiapr_tc-12.zip) and unzip it to ``data/images/saiapr_tc-12``.
+For RefCLEF, please add ``saiapr_tc-12`` into ``data/images`` folder. We extracted the related 19997 images to our cleaned RefCLEF dataset, which is a subset of the original [imageCLEF](http://imageclef.org/SIAPRdata). Download the [subset](https://bvisionweb1.cs.unc.edu/licheng/referit/data/images/saiapr_tc-12.zip) and unzip it to ``data/images/saiapr_tc-12``.
 
 ## How to use
 The "refer.py" is able to load all 4 datasets with different kinds of data split by UNC, Google, UMD and UC Berkeley.
