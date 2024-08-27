@@ -25,6 +25,7 @@ Download the cleaned data and extract them into "data" folder
 - 2) https://bvisionweb1.cs.unc.edu/licheng/referit/data/refcoco.zip
 - 3) https://bvisionweb1.cs.unc.edu/licheng/referit/data/refcoco+.zip 
 - 4) https://bvisionweb1.cs.unc.edu/licheng/referit/data/refcocog.zip
+
 As the webserver is broken (sry about this), please check this [Issue](https://github.com/lichengunc/refer/issues/14#issuecomment-1258318183) for all datasets downloading. Sorry about the trouble!
 
 ## Prepare Images:
